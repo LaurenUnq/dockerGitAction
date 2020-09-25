@@ -16,8 +16,8 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: laurenunquera/tpdocker
           tag_with_ref: true
-      - name: Assemble the Gradle package task
-      run: ./gradlew assemble
+      - name: Build the Gradle package task
+      run: ./gradlew build
       - name: Run the Gradle package task
       run: ./gradlew run
 
