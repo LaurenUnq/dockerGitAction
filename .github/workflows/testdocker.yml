@@ -7,6 +7,10 @@ jobs:
     name: Push Docker image to Docker Hub
     runs-on: ubuntu-latest
     steps:
+      - name: Assemble the Gradle package task
+      run: ./gradlew build
+      - name: Run the Gradle package task
+      run: ./gradlew run
       - name: Check out the repo
         uses: actions/checkout@v2
       - name: Push to Docker Hub
@@ -16,8 +20,5 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
           repository: laurenunquera/tpdocker
           tag_with_ref: true
-      - name: Assemble the Gradle package task
-      run: ./gradlew assemble
-      - name: Run the Gradle package task
-      run: ./gradlew run
+      
 
